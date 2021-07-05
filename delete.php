@@ -1,0 +1,1 @@
+<?php $db->delete($value['id']); ?>
