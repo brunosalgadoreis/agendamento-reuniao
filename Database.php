@@ -6,7 +6,7 @@ class Database {
 
     public function __construct() {
 
-        $this->pdo = new PDO("mysql:host=localhost;dbname=sistema", 'root', '');
+        $this->pdo = new PDO("mysql:host=localhost;dbname=sistema_agenda", 'root', '');
     }
 
     public function selectAgenda() {
