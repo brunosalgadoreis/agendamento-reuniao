@@ -1,4 +1,6 @@
 <?php
+include("header.php");
+
 ob_start();
 //error_reporting(E_ALL ^ E_NOTICE);
 if (!isset($_SESSION))
@@ -10,20 +12,19 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
-require 'Database.php';
-$db = new Database();
+require 'classes/Insert.php';
 
-date_default_timezone_set('America/Sao_Paulo');
+use classes\Insert;
+
+$insert = new Insert();
 ?>
-<?php include("header.php") ?>
-
-<section class="reserva">
+<section class="reserve">
     <div class="center">
         <?php
-        if (isset($_POST['acao'])) {
-            if (isset($_POST['nome'], $_POST['sala'], $_POST['dataHora'], $_POST['dataFim'], $_POST['calendario'])) {
+        if (isset($_POST['action'])) {
+            if (isset($_POST['name'], $_POST['room'], $_POST['dateHour'], $_POST['dateEnd'], $_POST['calendar'])) {
 
-                $db->insert();
+                $insert->insert();
 
                 header("refresh: 1; url=index.php");
                 exit;
@@ -32,13 +33,13 @@ date_default_timezone_set('America/Sao_Paulo');
             }
         }
         ?>
-        <form method="post" class=" row g-3" autocomplete="off" >
+        <form method="post" class=" row g-3" autocomplete="off">
             <div class="col-md-4">
-                <input type="text" class="form-control" name="nome" placeholder="Nome da Agenda">
+                <input type="text" class="form-control" name="name" placeholder="Nome da Agenda">
             </div>
             <div class="col-md-4">
-                <select class="form-select" name="sala">
-                    <option selected disabled value="">Escolha uma sala</option>
+                <select class="form-select" name="room">
+                    <option selected disabled value="">Escolha uma Sala</option>
                     <option value="Sala 1">Sala 1</option>
                     <option value="Sala 2">Sala 2</option>
                     <option value="Planejamento">Planejamento</option>
@@ -46,7 +47,7 @@ date_default_timezone_set('America/Sao_Paulo');
                 </select>
             </div>
             <div class="col-md-4">
-                <select class="form-select" name="dataHora">
+                <select class="form-select" name="dateHour">
                     <option selected disabled value="">Hora inicio</option>
                     <?php
                     for ($i = 7; $i <= 18; $i++) {
@@ -62,7 +63,7 @@ date_default_timezone_set('America/Sao_Paulo');
                 </select>
             </div>
             <div class="col-md-4">
-                <select class="form-select" name="dataFim">
+                <select class="form-select" name="dateEnd">
                     <option selected disabled value="">Hora fim</option>
                     <?php
                     for ($i = 7; $i <= 18; $i++) {
@@ -77,17 +78,18 @@ date_default_timezone_set('America/Sao_Paulo');
                 </select>
             </div>
             <div class="col-md-4">
-                <input type="text" id="calendar" name="calendario" class="form-control" placeholder="Selecione a Data">
+                <input type="text" id="calendar" name="calendar" class="form-control" placeholder="Selecione a Data">
             </div>
             <div class="col-md-12">
-                <input type="submit" class="btn btn-primary col-md-12" name="acao" value="Enviar">
+                <input type="submit" class="btn btn-primary col-md-12" name="action" value="Enviar">
             </div>
         </form>
         <hr>
     </div>
 </section>
 
-<?php include("agenda.php") ?>
+<?php include("schedule.php") ?>
 
 </body>
+
 </html>

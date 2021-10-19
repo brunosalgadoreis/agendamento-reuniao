@@ -49,13 +49,13 @@
         
 	}
 
-	.filtro{
+	.filter{
 		position: relative;
 		top:4px;
 		float: right;
 	}
 
-	section.reserva{
+	section.reserve{
 		padding: 10px 0;
 		text-align: center;
 	}
@@ -100,12 +100,12 @@
 		background: #dff0d8;
 	}
     */
-    section.agendamentos{
+    section.schedules{
 		padding: 30px 0;
 
 	}
 
-	.box-single-horario{
+	.box-single-timetable{
 		float: left;
 		width: 33.3%;
 		

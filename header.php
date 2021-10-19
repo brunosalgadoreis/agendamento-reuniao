@@ -35,3 +35,8 @@
                 <div class="clear"></div>
             </div>
         </header>
+
+<?php
+    require 'classes/Database.php';        
+    date_default_timezone_set('America/Sao_Paulo');
+?>
