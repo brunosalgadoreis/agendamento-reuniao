@@ -30,5 +30,5 @@ Criado pensando na necessidade de uma empresa que trabalho em agendar e guardar 
 - Importar o script `calendar_system.sql` que esta na pasta `db`.
 
 **Configuração:**
-- Alterar o arquivo config.php a `BASE_URL` e as informações necessárias para a conectar o banco de dados.
-- Alterar no arquivo `.htaccess` a URL em `RewriteRule`
+- Alterar o arquivo `classes\Database.php` as informações necessárias para a conectar o banco de dados.
+
